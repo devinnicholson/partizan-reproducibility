@@ -1,0 +1,36 @@
+{
+  "artifact_sha256": "0969b9fb28581187e93efd0399665169b544b9ac1e50b5d3b5a97689c1056811",
+  "bootstrap": {
+    "confidence_interval": [
+      0.025,
+      0.975
+    ],
+    "repetitions": 20000,
+    "seed_derivation": "first 64 bits of sha256('partizan.domineering_scope_bootstrap.v1\\n' + execution_artifact_sha256)",
+    "unit": "sample twelve targets with replacement; average the three acquisition seeds within each sampled target before the cross-target mean"
+  },
+  "endpoints": {
+    "certified_literal": "number of scheduled candidates whose independently replayed exact equality verdict is true",
+    "certified_ruleset_quotient": "number of distinct player-preserving ruleset quotient strings among exact-equal candidates",
+    "primary_effect": "novelty minus equality certified ruleset quotients",
+    "random_effect": "novelty minus random certified ruleset quotients",
+    "yield_ratio": "novelty certified literals divided by equality certified literals"
+  },
+  "execution_artifact_sha256": "fbda384286e09d09112717a0292bfbfc28375214c0d3576aa89b566164cd133d",
+  "information_boundary": {
+    "aggregated_policy_metrics_opened_before_freeze": false,
+    "event_replay_completed": true,
+    "partial_policy_metrics_opened": false,
+    "v5_test_material_opened": false
+  },
+  "readiness": {
+    "all_target_policy_seed_cells_have_a_certificate": true,
+    "novelty_minus_equality_ci_lower_greater_than": 0.0,
+    "novelty_minus_random_ci_lower_greater_than": 0.0,
+    "novelty_to_equality_literal_ratio_ci_lower_at_least": 0.9,
+    "resource_failure_count": 0
+  },
+  "replay_authority_artifact_sha256": "25a00f47d70866a785363835bb050b36d7f9a680ac61a0778f84352ab3674f31",
+  "schema_version": "partizan.fixed_value_scope_extension_analysis.v1_4",
+  "status": "FROZEN_AFTER_INDEPENDENT_REPLAY_AND_BEFORE_AGGREGATED_POLICY_METRICS"
+}

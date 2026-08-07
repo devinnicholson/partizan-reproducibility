@@ -1,0 +1,89 @@
+{
+  "artifact_sha256": "fb9ca5b077579a2f51dc2712a0d2f79f97e682435a24c8dd8c897eb51d7595f8",
+  "benchmark_authority": {
+    "artifact_sha256": "003e70377d1c26a10467e89d20b189b1e4ddbe30dda9f4ce643f0aeff38efb61",
+    "exact_verifier_call_count": 7968,
+    "failure_count": 0,
+    "scientific_outcomes_aggregated": false,
+    "scientific_outcomes_persisted": false
+  },
+  "candidate_features": {
+    "binary_grid": 16,
+    "rule_local_scalars": [
+      "available_cell_fraction",
+      "vertical_move_fraction",
+      "horizontal_move_fraction",
+      "connected_component_fraction",
+      "boundary_edge_fraction"
+    ],
+    "target_features": [
+      "twelve-way frozen target identity",
+      "target birthday",
+      "four-way target sign class",
+      "calibration literal count",
+      "calibration ruleset quotient count"
+    ]
+  },
+  "data_contract": {
+    "evaluation_labels_opened_before_model_freeze": 0,
+    "training_candidate_count": 16529,
+    "training_exact_labels": 198348,
+    "tuning_candidate_count": 9844,
+    "tuning_exact_labels": 118128
+  },
+  "model_grid": {
+    "architectures": [
+      {"architecture_id":"conv16-mlp64","convolution_channels":16,"hidden_width":64},
+      {"architecture_id":"conv32-mlp64","convolution_channels":32,"hidden_width":64},
+      {"architecture_id":"conv32-mlp128","convolution_channels":32,"hidden_width":128}
+    ],
+    "batch_size": 4096,
+    "dropout": 0.1,
+    "early_stopping_patience": 4,
+    "ensemble_seeds": [
+      2026081211,
+      2026081212
+    ],
+    "gradient_clip_norm": 1.0,
+    "learning_rate": 0.001,
+    "loss": "binary cross entropy with training-derived positive-class weight",
+    "maximum_epochs": 24,
+    "optimizer": "AdamW",
+    "selection": "highest mean target-macro tuning ROC-AUC, then lowest target-macro Brier score, then smallest parameter count, then architecture ID and seed",
+    "weight_decay": 0.0001
+  },
+  "parent_protocol_artifact_sha256": "a4a645d1be3781b56ed43ac8cf5cc25bec82a43857d2d69329986aa0c5441003",
+  "policy_tuning": {
+    "equality_temperature_grid": [
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "novelty_bonus": "alpha/sqrt(1 + previously_selected_ruleset_quotient_count) + beta/sqrt(1 + previously_selected_descriptor_cell_count)",
+    "novelty_weight_grid": [
+      {"alpha":0.25,"beta":0.0},
+      {"alpha":0.5,"beta":0.0},
+      {"alpha":1.0,"beta":0.0},
+      {"alpha":0.25,"beta":0.25},
+      {"alpha":0.5,"beta":0.25},
+      {"alpha":1.0,"beta":0.25}
+    ],
+    "selection_budget_per_target_seed": 512,
+    "selection_rule": "maximum mean certified ruleset quotients with certified-literal ratio at least 0.90 versus equality-only; then maximum certified literals; then lowest temperature, alpha, and beta",
+    "tuning_seeds": [
+      2026081221,
+      2026081222
+    ]
+  },
+  "schema_version": "partizan.fixed_value_scope_extension_implementation_amendment.v1_1",
+  "status": "FROZEN_AFTER_RESOURCE_BENCHMARK_AND_BEFORE_TRAINING_OR_EVALUATION_LABELS",
+  "unchanged_contract": {
+    "evaluation_budget": true,
+    "evaluation_seeds": true,
+    "information_boundary": true,
+    "primary_endpoint": true,
+    "readiness_gates": true,
+    "target_roster": true
+  }
+}

@@ -1,0 +1,4 @@
+numpy>=1.26,<3
+reportlab>=4,<5
+torch>=2.4,<3
+

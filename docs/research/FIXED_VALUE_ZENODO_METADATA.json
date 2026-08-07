@@ -1,0 +1,31 @@
+{
+  "access_right": "open",
+  "creators": [
+    {
+      "name": "Nicholson, Devin"
+    }
+  ],
+  "description": "Complete certificate, event, sidecar, authority, and scope evidence for the Partizan fixed-value representation study in bounded Digraph Placement and Domineering domains. The compact reproducibility candidate should be uploaded alongside the full evidence archive.",
+  "keywords": [
+    "combinatorial game theory",
+    "creative AI",
+    "proof-carrying generation",
+    "neural acquisition",
+    "fixed-value representation"
+  ],
+  "license": "GPL-3.0-or-later",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/devinnicholson/partizan",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/devinnicholson/partizan-reproducibility",
+      "relation": "isSourceOf",
+      "scheme": "url"
+    }
+  ],
+  "title": "Partizan: Fixed-Value Representation Evidence",
+  "upload_type": "dataset"
+}

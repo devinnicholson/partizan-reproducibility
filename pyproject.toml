@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "partizan-reproducibility"
+version = "1.0.0rc1"
+description = "Reproducibility tools for Partizan fixed-value representation experiments"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "GPL-3.0-or-later" }
+authors = [{ name = "Devin Nicholson" }]
+dependencies = [
+  "numpy>=1.26,<3",
+  "reportlab>=4,<5",
+  "torch>=2.4,<3",
+]
+
+[project.urls]
+Repository = "https://github.com/devinnicholson/partizan-reproducibility"
+Partizan = "https://github.com/devinnicholson/partizan"
+

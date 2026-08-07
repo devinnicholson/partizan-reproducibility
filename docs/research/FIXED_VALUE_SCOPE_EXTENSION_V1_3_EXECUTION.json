@@ -1,0 +1,69 @@
+{
+  "artifact_sha256": "fbda384286e09d09112717a0292bfbfc28375214c0d3576aa89b566164cd133d",
+  "corruption_families": [
+    "event_index",
+    "policy_id",
+    "target_id",
+    "acquisition_seed",
+    "proposal_rank",
+    "candidate_mask",
+    "candidate_literal_sha256",
+    "candidate_game_sha256",
+    "target_game_sha256",
+    "exact_equal_verdict",
+    "ruleset_quotient",
+    "previous_event_sha256",
+    "event_sha256"
+  ],
+  "evaluation": {
+    "call_count": 221184,
+    "candidate_bucket_range": [
+      41,
+      99
+    ],
+    "candidate_count": 38499,
+    "calls_per_policy_target_seed": 2048,
+    "policy_order": [
+      "uniform_random_without_replacement",
+      "neural_equality_only",
+      "neural_equality_plus_ruleset_novelty"
+    ],
+    "seed_count": 3,
+    "target_count": 12
+  },
+  "event_chain": {
+    "canonical_encoding": "ASCII JSON with sorted keys and compact separators",
+    "domain": "partizan.domineering_scope_event.v1",
+    "first_previous_event_sha256": "64 zeroes",
+    "one_event_per_scheduled_call": true
+  },
+  "information_boundary": {
+    "all_schedule_rows_frozen_before_first_evaluation_label": true,
+    "evaluation_metrics_opened_before_terminal_event_chain": false,
+    "partial_event_outcomes_inspected": false,
+    "paper_changes_before_terminal_authority": false,
+    "v5_test_material_opened": false
+  },
+  "model_freeze_authority": {
+    "artifact_sha256": "2b0ff2cdbad0d25698f234636b1fa8d5f88cb16b5315a8a5452d14ce62af04ad",
+    "selected_architecture": "conv32-mlp128",
+    "status": "MODEL_AND_POLICY_FROZEN_BEFORE_EVALUATION"
+  },
+  "parent_clarification_artifact_sha256": "d7a3eb66e8a24e9efeb725756922bde8a9ca77b19a77ee27b178ad787a815b85",
+  "parent_protocol_artifact_sha256": "a4a645d1be3781b56ed43ac8cf5cc25bec82a43857d2d69329986aa0c5441003",
+  "replay": {
+    "all_events_recomputed_from_candidate_mask_and_target_representative": true,
+    "all_thirteen_corruption_families_must_be_rejected": true,
+    "schedule_reconstructed_from_frozen_checkpoints": true
+  },
+  "schema_version": "partizan.fixed_value_scope_extension_execution.v1_3",
+  "statistics": {
+    "bootstrap_repetitions": 20000,
+    "confidence_interval": [
+      0.025,
+      0.975
+    ],
+    "resampling_unit": "target with seed-level metrics averaged inside target"
+  },
+  "status": "FROZEN_BEFORE_EVALUATION_SCHEDULE_OR_OUTCOMES"
+}

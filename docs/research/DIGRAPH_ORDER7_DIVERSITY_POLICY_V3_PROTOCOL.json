@@ -1,0 +1,266 @@
+{
+  "schema_version": "partizan.digraph_order7_diversity_policy_protocol.v3",
+  "status": "DESIGN_FROZEN_VALIDATION_AND_TEST_DATA_NOT_GENERATED",
+  "freeze_date": "2026-07-27",
+  "preregistration_path": "docs/research/DIGRAPH_ORDER7_DIVERSITY_POLICY_V3_PREREGISTRATION.md",
+  "repair_scope": {
+    "changed": ["pair_specific_historical_exact_initialization"],
+    "unchanged": [
+      "three_arms",
+      "toggle_one_arc_kernel",
+      "structural_filter",
+      "equality_model",
+      "novelty_model",
+      "lambda",
+      "memory_update",
+      "exact_verifier",
+      "test_budget",
+      "outcomes",
+      "inference",
+      "scientific_thresholds"
+    ],
+    "v2_outcome_used_for_model_training": false,
+    "v2_outcome_used_for_model_selection": false,
+    "v2_outcome_used_for_threshold_selection": false
+  },
+  "source_evidence": {
+    "v2_completion": {
+      "path": "output/research/digraph-order7-diversity-policy-test-v2-fd029f79ddfc/RUN_COMPLETE.json",
+      "sha256": "8b1bcf89811dcc662595b04c703228c3676e094624caac0d8fc8b77686b5b46d",
+      "status": "NO_GO"
+    },
+    "v2_verification": {
+      "path": "output/research/digraph-order7-diversity-policy-test-v2-fd029f79ddfc/independent_verification.json",
+      "sha256": "fec596aa571788b2901ae2eca87b6492076b5113210142848723865dcedff05c",
+      "status": "PASS"
+    },
+    "reachability_diagnostic": {
+      "path": "output/research/digraph-order7-v2-reachability-diagnostic-v1/REACHABILITY_DIAGNOSTIC.json",
+      "sha256": "b6c7f4866cd98dcf7081707fa3f5162a7878724876b2ca722d51e8276ec480dd",
+      "diagnostic_sha256": "2606bd89e7f364534dc54a0b7091cb4f2e38b959d7797cadeebdada9d2e5dcae"
+    },
+    "v3_prior_registry": {
+      "path": "output/research/digraph-order7-v2-reachability-diagnostic-v1/V3_PRIOR_SPLIT_IDENTITY_REGISTRY.json",
+      "sha256": "3cc966dd2aa90920d2fc879d22fdf6e3dd38fb807d43526360b3578ee3d3daf3",
+      "registry_sha256": "f2df58b041d049beefb5fbbe9ea3b012ea713bac7da386babd5fa4e07c96c2c0"
+    },
+    "initialization_manifest": {
+      "path": "output/research/digraph-order7-policy-v3-initializations-v1/INITIALIZATION_MANIFEST.json",
+      "sha256": "e1b35a2059200e62eef421230fcdf5532f5b3e3a4abfd1e3d2216d99a06d943d",
+      "manifest_sha256": "c115ef714cf1bf22c88a0af9598ba84dbc3dd14c4d7c070b570264c70cd7100d"
+    },
+    "model_package": {
+      "path": "output/research/digraph-order7-diversity-model-v2-3cf1bb0ba101/MODEL_PACKAGE.json",
+      "sha256": "b839105e07ad339931e03d56e6c9855e0dbb20c6ef06ada9bf13e360c38bb408",
+      "model_id": "ensemble-sha256:313da31b97d65fe2ee12be075c1c21ac866a061db00ef5e8bb15ed55b65142f9"
+    },
+    "model_verification": {
+      "path": "output/research/digraph-order7-diversity-model-v2-3cf1bb0ba101/MODEL_PACKAGE_VERIFICATION.json",
+      "sha256": "8755c95902d9802284901d7e310e3fb013d320b19244b54a730f545f570bb7e1",
+      "status": "PASS_MODEL_PACKAGE_ONLY"
+    }
+  },
+  "domain": {
+    "ruleset": "digraph_placement",
+    "order": 7,
+    "targets": ["0", "*", "{0|1}"],
+    "proposal_operator": "toggle_one_arc_only",
+    "candidate_pool_size": 16
+  },
+  "initialization": {
+    "source": "frozen_historical_exact_target_controls",
+    "manifest_path": "output/research/digraph-order7-policy-v3-initializations-v1/INITIALIZATION_MANIFEST.json",
+    "minimum_weakly_connected_nonprior_candidate_neighbors": 32,
+    "selection_order": "ascending_domain_separated_sha256_key",
+    "pair_specific": true,
+    "shared_across_arms": true,
+    "counts_as_discovery": false,
+    "novelty_memory_initialization": "pair_specific_control_graph_only",
+    "neighbor_exact_value_used_for_selection": false,
+    "neighbor_quotient_used_for_selection": false,
+    "neighbor_literal_digest_used_for_selection": false
+  },
+  "arms": [
+    {
+      "id": "structural_toggle_one_random",
+      "selection": "uniform_first_nonempty_structural_tier",
+      "uses_equality_model": false,
+      "uses_novelty_model": false
+    },
+    {
+      "id": "neural_toggle_one_equality",
+      "selection": "maximum_frozen_v1_equality_logit_then_candidate_sha256",
+      "uses_equality_model": true,
+      "uses_novelty_model": false
+    },
+    {
+      "id": "neural_toggle_one_equality_novelty",
+      "selection": "maximum_frozen_rank_fusion_score_then_candidate_sha256",
+      "uses_equality_model": true,
+      "uses_novelty_model": true
+    }
+  ],
+  "models": {
+    "equality": "frozen_v1_three_member_ensemble",
+    "novelty": "ensemble-sha256:313da31b97d65fe2ee12be075c1c21ac866a061db00ef5e8bb15ed55b65142f9",
+    "lambda": 0.5,
+    "online_parameter_updates": false,
+    "v3_training_rows": 0,
+    "v3_model_selection": false
+  },
+  "structural_filter": {
+    "has_exact_value_access": false,
+    "has_graph_quotient_access": false,
+    "has_literal_game_access": false,
+    "first_nonempty_tier": true,
+    "tiers": [
+      ["weakly_connected", "not_prior_split_candidate", "candidate_new_to_arm"],
+      ["weakly_connected", "not_prior_split_candidate"],
+      ["not_prior_split_candidate"],
+      ["all"]
+    ]
+  },
+  "acquisition": {
+    "novelty_memory_update": "append_selected_prior_split_nonleaking_exact_match_graph_after_verification",
+    "novelty_memory_is_arm_local": true,
+    "literal_digest_or_quotient_in_memory": false,
+    "candidate_novelty": "mean_member_minimum_cosine_distance_to_arm_memory",
+    "within_pool_transform": "ascending_midrank_fraction_zero_one_higher_better",
+    "combined_score": "equality_midrank_fraction_plus_0.5_times_novelty_midrank_fraction",
+    "final_tie_break": "lexicographically_smallest_candidate_sha256"
+  },
+  "splits": {
+    "validation": {
+      "pair_count_per_target": 4,
+      "verifier_calls_per_arm_pair": 128,
+      "pair_seeds": [
+        598108200790103354,
+        356618622183101927,
+        18443400224252682675,
+        6242523354284767445
+      ],
+      "initialization_indices": [0, 1, 2, 3],
+      "model_or_threshold_selection_allowed": false
+    },
+    "test": {
+      "pair_count_per_target": 12,
+      "verifier_calls_per_arm_pair": 2048,
+      "checkpoints": [128, 512, 1024, 2048],
+      "pair_seeds": [
+        6859716190138453075,
+        13831929254634206279,
+        14673683287690108047,
+        14990735107406738499,
+        4152311502197726611,
+        1816855469408631043,
+        1540224294009698741,
+        16553065052051154742,
+        17093583529076065264,
+        10687645150663986582,
+        2336272280613801752,
+        8410489524424293916
+      ],
+      "initialization_indices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      "success_stopping_rule": false
+    }
+  },
+  "budget": {
+    "validation_exact_verifier_calls": 4608,
+    "validation_raw_pool_candidates": 73728,
+    "test_exact_verifier_calls": 221184,
+    "test_raw_pool_candidates": 3538944,
+    "equal_test_budget_per_arm_target_pair": true
+  },
+  "validation_gate": {
+    "all_integrity_checks_pass": true,
+    "first_pool_tier_zero_for_every_stream": true,
+    "at_least_one_nonprior_selection_every_stream": true,
+    "at_least_one_clean_exact_match_every_arm_and_target": true,
+    "at_least_one_quotient_discovery_every_arm_and_target": true,
+    "test_initializations_or_seeds_used": false,
+    "parameter_or_threshold_change_allowed": false
+  },
+  "primary_analysis": {
+    "unit": "paired_target_stream",
+    "literal_superiority": {
+      "treatment": "neural_toggle_one_equality_novelty",
+      "control": "neural_toggle_one_equality",
+      "estimator": "target_macro_average_of_paired_stream_differences",
+      "success": "point_gt_0_and_bootstrap_lower_gt_0"
+    },
+    "quotient_noninferiority": {
+      "treatment": "neural_toggle_one_equality_novelty",
+      "control": "neural_toggle_one_equality",
+      "estimator": "ratio_of_target_macro_mean_stream_counts",
+      "margin": 0.95,
+      "zero_denominator_rule": "fail"
+    },
+    "interval": {
+      "method": "stratified_paired_percentile_bootstrap",
+      "confidence": 0.95,
+      "resamples": 20000,
+      "rng_seed": 12792362788753498044
+    },
+    "sign_flip": {
+      "method": "deterministic_two_sided_paired_sign_flip",
+      "maximum_assignments": 1000000,
+      "rng_seed": 10520555185417374640
+    }
+  },
+  "pareto_restoration_gate": {
+    "all_integrity_checks_pass": true,
+    "literal_superiority_point_gt_0": true,
+    "literal_superiority_interval_lower_gt_0": true,
+    "quotient_ratio_point_ge": 0.95,
+    "quotient_ratio_interval_lower_ge": 0.95,
+    "quotient_superiority_to_random_point_gt_0": true,
+    "quotient_superiority_to_random_interval_lower_gt_0": true,
+    "minimum_quotient_relative_lift_to_random": 0.05,
+    "minimum_literal_ratio_to_random": 0.95,
+    "positive_literal_mean_difference_every_target": true,
+    "minimum_descriptor_cell_ratio_to_random": 0.9,
+    "both_transition_classes_every_target": true,
+    "nonzero_quotient_and_literal_support_every_arm_and_target": true,
+    "zero_denominator_rule": "fail",
+    "secondary_metrics_may_substitute": false
+  },
+  "integrity": {
+    "protocol_schema_validation": true,
+    "protocol_semantic_validation": true,
+    "all_pool_candidates_logged": true,
+    "selected_proposal_always_consumes_one_call": true,
+    "all_selected_candidates_independently_replayed": true,
+    "model_scores_embeddings_memory_and_fusion_replayed": true,
+    "initialization_assignment_independently_replayed": true,
+    "global_hash_chain": true,
+    "immutable_exclusive_directories": true,
+    "corruption_family_count": 30
+  },
+  "resource_gate": {
+    "validation_wall_seconds": 900,
+    "test_generation_wall_seconds": 5400,
+    "test_verification_wall_seconds": 7200,
+    "run_directory_bytes": 12884901888,
+    "peak_resident_memory_bytes": 4294967296
+  },
+  "failure_policy": {
+    "validation_launches_authorized": 1,
+    "test_launches_authorized": 1,
+    "resume_allowed": false,
+    "overwrite_allowed": false,
+    "post_validation_change_allowed": false,
+    "post_test_change_allowed": false,
+    "secondary_rescue_allowed": false,
+    "failed_primary_claim_status": "NO_GO",
+    "all_v1_v2_v3_outcomes_disclosed": true
+  },
+  "claim_boundary": {
+    "go_wording": "Within the frozen order-7 Digraph Placement grammar, using leakage-safe historical exact controls and equal exact-verifier budgets, a graph-embedding novelty term increased literal-game diversity over the frozen equality-only neural policy while retaining quotient discovery and preserving an advantage over structural random selection.",
+    "v1_no_go_must_be_disclosed": true,
+    "v2_deadlock_no_go_must_be_disclosed": true,
+    "human_preference_measured": false,
+    "aesthetic_quality_measured": false,
+    "neural_model_certifies_correctness": false,
+    "kqqkqq_role": "historical_motivation_only"
+  }
+}

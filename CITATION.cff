@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use these materials, please cite the archived dataset."
+title: "Partizan: Fixed-Value Representation Evidence"
+type: dataset
+authors:
+  - family-names: Nicholson
+    given-names: Devin
+version: 1.0.0-rc1
+date-released: 2026-08-06
+license: GPL-3.0-or-later
+repository-code: "https://github.com/devinnicholson/partizan-reproducibility"
+abstract: >-
+  Experiment code, protocols, compact authorities, and archival metadata for
+  the Partizan fixed-value representation study in bounded Digraph Placement
+  and Domineering.
+keywords:
+  - combinatorial game theory
+  - creative AI
+  - proof-carrying generation
+  - neural acquisition
+  - fixed-value representation
+

@@ -1,0 +1,27 @@
+{
+  "schema_version": "partizan.digraph_order7_seed_calibration.v1.failure",
+  "status": "CALIBRATION_GENERATOR_FAIL",
+  "manifest_sha256": "c4b2bb2ec3345666cb427ec8a73354101ee8c104b0bfd37ca3ce7b57e070b524",
+  "manifest_file_sha256_before_failure_record": "b5edc060e4c93cb9a431db62ec836e9e88453fff7311d95ba7062ac2428799dc",
+  "extensions_file_sha256": "3298c23e092c0a864e26dd7a162384fe5b3dd0cb6b8829a19a5bd6d9d1f4b808",
+  "written_extension_rows": 1,
+  "failure": {
+    "stage": "GENERATOR_EQUALITY_DECISION",
+    "target": "0",
+    "extension_index": 1,
+    "code": "NONMATCH_WRONGLY_REQUIRED_EQUALITY_PROOF",
+    "message": "The generic equality-certificate verifier correctly rejected a nonmatching candidate; the calibration harness incorrectly required an equality proof for every exact nonmatch."
+  },
+  "additional_exposed_candidate": {
+    "target": "0",
+    "extension_index": 1,
+    "candidate_sha256": "f233101c05e046d67a43527ff9ef9da751da1d5ffa4ddb1570ba49b7ea84b2b4",
+    "quotient_sha256": "bf88e4a5a7bea9bb2f5fce7dce32701fcac00a278a11c8ef7238fb589c957c7c",
+    "exact_target_match": false,
+    "reason": "SEMANTICALLY_EVALUATED_BEFORE_GENERATOR_ABORT"
+  },
+  "paper_evidence": false,
+  "heldout_search_authorized": false,
+  "resume_authorized": false,
+  "new_exclusive_run_required": true
+}

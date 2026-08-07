@@ -1,0 +1,15 @@
+{
+  "artifact_sha256": "d7a3eb66e8a24e9efeb725756922bde8a9ca77b19a77ee27b178ad787a815b85",
+  "clarifications": {
+    "descriptor_cell": "(available_cell_count, vertical_move_count, horizontal_move_count, connected_component_count, boundary_edge_count)",
+    "ensemble_prediction": "arithmetic mean of equality probabilities from the two frozen checkpoints of the selected architecture",
+    "model_selection": "select architecture by mean of its two seeds' target-macro tuning ROC-AUC, then mean Brier score, parameter count, and architecture ID; retain both seed checkpoints",
+    "novelty_policy_randomness": "one frozen Gumbel variate per candidate, target, and acquisition seed; dynamic bonuses are updated lazily without changing the underlying variates"
+  },
+  "evaluation_labels_opened": 0,
+  "parent_amendment_artifact_sha256": "fb9ca5b077579a2f51dc2712a0d2f79f97e682435a24c8dd8c897eb51d7595f8",
+  "parent_protocol_artifact_sha256": "a4a645d1be3781b56ed43ac8cf5cc25bec82a43857d2d69329986aa0c5441003",
+  "schema_version": "partizan.fixed_value_scope_extension_clarification.v1_2",
+  "scientific_contract_changed": false,
+  "status": "FROZEN_BEFORE_MODEL_TRAINING_OR_EVALUATION_LABELS"
+}

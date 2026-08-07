@@ -1,0 +1,155 @@
+{
+  "artifact_sha256": "a4a645d1be3781b56ed43ac8cf5cc25bec82a43857d2d69329986aa0c5441003",
+  "cross_family_experiment": {
+    "acquisition_policies": [
+      "uniform_random_without_replacement",
+      "neural_equality_only",
+      "neural_equality_plus_ruleset_novelty"
+    ],
+    "candidate_partition": {
+      "benchmark_bucket": 0,
+      "bucket_count": 100,
+      "bucket_function": "uint256(sha256('partizan.domineering_scope_candidate.v1\\n' + literal_code)) mod 100",
+      "evaluation_buckets": [
+        41,
+        99
+      ],
+      "training_buckets": [
+        1,
+        25
+      ],
+      "tuning_buckets": [
+        26,
+        40
+      ]
+    },
+    "domain": {
+      "calibration_frame": "3x3 exhaustive 512-mask universe",
+      "evaluation_frame": "4x4 exhaustive 65,536-mask universe",
+      "left_move": "place a vertical domino",
+      "normal_play": true,
+      "right_move": "place a horizontal domino"
+    },
+    "evaluation_budget": {
+      "calls_per_policy_target_seed": 2048,
+      "policy_count": 3,
+      "seed_count": 3,
+      "target_count": 12,
+      "total_exact_verifier_calls": 221184
+    },
+    "evaluation_seeds": [
+      2026081201,
+      2026081202,
+      2026081203
+    ],
+    "exact_authority": {
+      "comparison": "finite normal-play Conway order in both directions",
+      "literal_identity": "framed 4x4 availability mask",
+      "ruleset_quotient": "translation plus horizontal reflection, vertical reflection, and 180-degree rotation",
+      "unsigned_shape_descriptor": "translation plus full dihedral action",
+      "warning": "quarter-turn and diagonal transformations exchange Left and Right and are excluded from ruleset quotient counts"
+    },
+    "model": {
+      "architecture_grid": [
+        "conv16-mlp64",
+        "conv32-mlp64",
+        "conv32-mlp128"
+      ],
+      "candidate_input": "4x4 binary availability grid and deterministic rule-local scalar descriptors",
+      "ensemble_seeds": [
+        2026081211,
+        2026081212
+      ],
+      "equality_loss": "class-balanced binary cross-entropy",
+      "selection": "maximum paired tuning macro ROC-AUC, then minimum Brier score, then smallest architecture",
+      "target_input": "frozen target identifier and exact target-game structural descriptors",
+      "training_outcomes_may_open": true,
+      "tuning_outcomes_may_open_after_training": true
+    },
+    "policy_contract": {
+      "equality_only": "seeded Plackett-Luce sampling without replacement from frozen neural equality logits at the frozen temperature",
+      "novelty": "the equality policy plus a frozen diminishing-return bonus for unseen player-preserving ruleset quotients and descriptor cells",
+      "random": "seeded uniform sampling without replacement",
+      "temperature_grid": [
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ]
+    },
+    "target_selection": {
+      "eligibility": "at least three player-preserving ruleset quotients in the exhaustive 3x3 calibration universe",
+      "stratification": {
+        "fuzzy": 5,
+        "negative": 3,
+        "positive": 3,
+        "zero": 1
+      },
+      "tie_break": "descending calibration ruleset-quotient count, then ascending exact game SHA-256",
+      "uses_4x4_outcomes": false
+    },
+    "targets": [
+      {"birthday":0,"calibration_literal_count":108,"calibration_representative_mask":0,"calibration_ruleset_quotient_count":35,"game_sha256":"412adad2fd20cca68715d035d4f6c43f5c716ca6e8f1200c30db134e6e964f18","sign_class":"zero","target_id":"dom-v1-00"},
+      {"birthday":1,"calibration_literal_count":53,"calibration_representative_mask":9,"calibration_ruleset_quotient_count":13,"game_sha256":"344af4860a5639404649520fcac9fea34c78b85a199b44d187a179594c366ad2","sign_class":"positive","target_id":"dom-v1-01"},
+      {"birthday":2,"calibration_literal_count":11,"calibration_representative_mask":45,"calibration_ruleset_quotient_count":5,"game_sha256":"0637bc42a74e5a100a7d3a0bd7f81e8650b4116b85ac6879d4902e9cc049c2a2","sign_class":"positive","target_id":"dom-v1-02"},
+      {"birthday":2,"calibration_literal_count":18,"calibration_representative_mask":75,"calibration_ruleset_quotient_count":4,"game_sha256":"22379c156260a7997416e79fbc80fad25e9e7f39ac43bbcb74f3b8dfd4a1e64f","sign_class":"positive","target_id":"dom-v1-03"},
+      {"birthday":1,"calibration_literal_count":53,"calibration_representative_mask":3,"calibration_ruleset_quotient_count":13,"game_sha256":"2bf647dfd8121d9bd048cd1ca745199322e4cf500d403e6b0299151b678202a1","sign_class":"negative","target_id":"dom-v1-04"},
+      {"birthday":2,"calibration_literal_count":11,"calibration_representative_mask":195,"calibration_ruleset_quotient_count":5,"game_sha256":"c2f6879d72c42fbbf4aaedf47af3a83ff4385f2ca0c626c053ca803ae30b2667","sign_class":"negative","target_id":"dom-v1-05"},
+      {"birthday":2,"calibration_literal_count":18,"calibration_representative_mask":15,"calibration_ruleset_quotient_count":4,"game_sha256":"9b4d19719a4d8d147a6c387e010394da7e2166d3ecac06c31566aaa9bfb5de97","sign_class":"negative","target_id":"dom-v1-06"},
+      {"birthday":1,"calibration_literal_count":85,"calibration_representative_mask":11,"calibration_ruleset_quotient_count":18,"game_sha256":"948413543b79f831ed2504a42131ebe75cb940e2a8a97ffd99dc63fb2ba8e5e4","sign_class":"fuzzy","target_id":"dom-v1-07"},
+      {"birthday":2,"calibration_literal_count":61,"calibration_representative_mask":27,"calibration_ruleset_quotient_count":14,"game_sha256":"5e50b3f9f0772ea433a4a5ddfa367b13c34bf9deefcdc59469b9b8f709636063","sign_class":"fuzzy","target_id":"dom-v1-08"},
+      {"birthday":3,"calibration_literal_count":12,"calibration_representative_mask":63,"calibration_ruleset_quotient_count":4,"game_sha256":"24d9bbc8577367509819e9d40be35746867877c3333c0a4d6ae7db8eed920c49","sign_class":"fuzzy","target_id":"dom-v1-09"},
+      {"birthday":3,"calibration_literal_count":12,"calibration_representative_mask":219,"calibration_ruleset_quotient_count":4,"game_sha256":"a9c1561f5ea6878518421ea21216b5750dd60c76f617a1f027f20d2c5015261b","sign_class":"fuzzy","target_id":"dom-v1-10"},
+      {"birthday":2,"calibration_literal_count":12,"calibration_representative_mask":90,"calibration_ruleset_quotient_count":3,"game_sha256":"32e1f3d043e433fbeba36e61fc5be253ee94c8d6706aac4923cb49921d3b3cfc","sign_class":"fuzzy","target_id":"dom-v1-11"}
+    ]
+  },
+  "digraph_breadth_evidence": {
+    "interpretation": "existing clean held-out development evidence; supportive and not a replacement for a new cross-family result",
+    "mean_distinct_exact_quotients_frozen_v4_reranker": 6.166666666666667,
+    "mean_distinct_exact_quotients_v5_7_1": 10.833333333333334,
+    "source_artifact_sha256": "54ab1a09483b4c0d0f6820b106aac96cb528c9a396beabdfd66282966f909668",
+    "target_count": 24,
+    "target_coverage": 1.0,
+    "verifier_calls": 7680,
+    "warning": "V5.7.1 did not pass every preregistered ablation readiness gate"
+  },
+  "information_boundary": {
+    "benchmark_reports_outcomes": false,
+    "evaluation_outcomes_open_only_after_all_policy_shards_finish": true,
+    "paper_content_changes_before_terminal_authority": false,
+    "partial_evaluation_metrics_opened": false,
+    "v5_test_material_opened": false
+  },
+  "primary_claim": "Across a second finite partizan ruleset and twelve stratified values, novelty-guided neural acquisition discovers more certified player-preserving realization quotients under the same exact proof standard.",
+  "readiness_gates": {
+    "all_targets_have_at_least_one_certified_realization_per_policy_seed": true,
+    "novelty_minus_equality_primary_bootstrap_lower_bound_greater_than": 0.0,
+    "novelty_minus_random_primary_bootstrap_lower_bound_greater_than": 0.0,
+    "novelty_to_equality_certified_literal_ratio_lower_bound_at_least": 0.9,
+    "resource_failures": 0
+  },
+  "resource_benchmark": {
+    "call_count": 7968,
+    "candidate_count": 664,
+    "candidate_source": "the disjoint benchmark hash bucket of the 4x4 universe",
+    "maximum_elapsed_seconds": 1800,
+    "maximum_peak_rss_mib": 4096,
+    "outcome_aggregation_forbidden": true,
+    "target_count": 12
+  },
+  "schema_version": "partizan.fixed_value_scope_extension_protocol.v1",
+  "statistics": {
+    "bootstrap_repetitions": 20000,
+    "family_pooling": "report Digraph and Domineering separately before any qualitative synthesis",
+    "primary_endpoint": "distinct exact-certified player-preserving ruleset quotients per target-seed",
+    "resampling_unit": "target, with acquisition seeds averaged inside target",
+    "secondary_endpoints": [
+      "distinct exact-certified literal positions",
+      "exact equality yield",
+      "target coverage",
+      "unsigned shape quotients",
+      "novelty per verifier call"
+    ]
+  },
+  "status": "FROZEN_BEFORE_DOMINEERING_RESOURCE_BENCHMARK_OR_EVALUATION_OUTCOMES"
+}

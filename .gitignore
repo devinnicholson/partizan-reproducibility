@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.DS_Store
+*.log
+*.tmp
+
+# Large or regenerated evidence is archived through Zenodo.
+output/research/**/events.jsonl
+output/research/**/stream_metrics.json
+output/research/**/independent_stream_metrics.json
+output/research/**/prior_split_registry.json
+output/research/**/test_prior_split_registry.json
+output/research/**/artifacts/
+output/release/*.zip
+output/release/*.tar.gz
+

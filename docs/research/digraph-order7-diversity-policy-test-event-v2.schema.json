@@ -1,0 +1,305 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://partizan.dev/schemas/digraph-order7-diversity-policy-test-event-v2.schema.json",
+  "title": "Partizan order-7 diversity-policy held-out event V2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "mode",
+    "global_event_index",
+    "target",
+    "pair_seed",
+    "call_index",
+    "arm",
+    "proposal_sha256",
+    "pool_id",
+    "parent",
+    "proposal",
+    "candidate",
+    "candidate_sha256",
+    "structural_filter",
+    "model_selected",
+    "exact_verifier_call_consumed",
+    "weakly_connected",
+    "exact_decision",
+    "structural_quotient",
+    "quotient",
+    "measurements",
+    "prior_split_candidate_collision",
+    "prior_split_quotient_collision",
+    "prior_split_leakage",
+    "cross_arm",
+    "transition",
+    "retention",
+    "rejection",
+    "previous_arm_event_sha256",
+    "previous_global_event_sha256",
+    "event_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "partizan.digraph_order7_diversity_policy_test.v2.event"
+    },
+    "mode": {
+      "enum": ["authorized_test", "smoke_fixture"]
+    },
+    "global_event_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "target": {
+      "enum": ["0", "*", "{0|1}"]
+    },
+    "pair_seed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "call_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "arm": {
+      "enum": [
+        "structural_toggle_one_random",
+        "neural_toggle_one_equality",
+        "neural_toggle_one_equality_novelty"
+      ]
+    },
+    "proposal_sha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "pool_id": {
+      "$ref": "#/$defs/sha256"
+    },
+    "parent": {
+      "$ref": "#/$defs/parent"
+    },
+    "proposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operator", "arc", "selected_slot"],
+      "properties": {
+        "operator": {
+          "const": "toggle_one_arc"
+        },
+        "arc": {
+          "$ref": "#/$defs/arc"
+        },
+        "selected_slot": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15
+        }
+      }
+    },
+    "candidate": {
+      "$ref": "#/$defs/candidate"
+    },
+    "candidate_sha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "structural_filter": {
+      "$ref": "#/$defs/structural_filter"
+    },
+    "model_selected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "equality_logit_hex",
+        "novelty",
+        "novelty_memory_size_after"
+      ],
+      "properties": {
+        "equality_logit_hex": {
+          "type": ["string", "null"]
+        },
+        "novelty": {
+          "type": ["object", "null"]
+        },
+        "novelty_memory_size_after": {
+          "type": ["integer", "null"],
+          "minimum": 1
+        }
+      }
+    },
+    "exact_verifier_call_consumed": {
+      "const": true
+    },
+    "weakly_connected": {
+      "type": "boolean"
+    },
+    "exact_decision": {
+      "type": ["object", "null"]
+    },
+    "structural_quotient": {
+      "type": ["object", "null"]
+    },
+    "quotient": {
+      "type": ["object", "null"]
+    },
+    "measurements": {
+      "type": ["object", "null"]
+    },
+    "prior_split_candidate_collision": {
+      "type": "boolean"
+    },
+    "prior_split_quotient_collision": {
+      "type": "boolean"
+    },
+    "prior_split_leakage": {
+      "type": "boolean"
+    },
+    "cross_arm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_seen_by_other_arm",
+        "quotient_seen_by_other_arm"
+      ],
+      "properties": {
+        "candidate_seen_by_other_arm": {
+          "type": "boolean"
+        },
+        "quotient_seen_by_other_arm": {
+          "type": "boolean"
+        }
+      }
+    },
+    "transition": {
+      "type": ["object", "null"]
+    },
+    "retention": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "new_quotient",
+        "duplicate_quotient",
+        "inserted",
+        "sidecars",
+        "equality_certificate_sha256"
+      ],
+      "properties": {
+        "new_quotient": {
+          "type": "boolean"
+        },
+        "duplicate_quotient": {
+          "type": "boolean"
+        },
+        "inserted": {
+          "type": "boolean"
+        },
+        "sidecars": {
+          "type": ["object", "null"]
+        },
+        "equality_certificate_sha256": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "rejection": {
+      "type": ["object", "null"]
+    },
+    "previous_arm_event_sha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "previous_global_event_sha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "event_sha256": {
+      "$ref": "#/$defs/sha256"
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "arc": {
+      "type": "array",
+      "prefixItems": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 6
+        },
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 6
+        }
+      ],
+      "items": false,
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["order", "blue_vertices", "arcs"],
+      "properties": {
+        "order": {
+          "const": 7
+        },
+        "blue_vertices": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 6
+          },
+          "uniqueItems": true
+        },
+        "arcs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/arc"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "parent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["candidate_sha256", "quotient_sha256"],
+      "properties": {
+        "candidate_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "quotient_sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      }
+    },
+    "structural_filter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tier_index", "eligible_slots"],
+      "properties": {
+        "tier_index": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "eligible_slots": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 15
+          },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}
