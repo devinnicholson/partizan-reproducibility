@@ -7,8 +7,9 @@ authors:
     given-names: Devin
 version: 1.0.0-rc1
 date-released: 2026-08-06
+doi: 10.5281/zenodo.21833142
 license: GPL-3.0-or-later
-repository-code: "https://github.com/devinnicholson/partizan"
+repository-code: "https://github.com/devinnicholson/partizan-reproducibility"
 abstract: >-
   Complete certificate, event, sidecar, authority, and scope evidence for the
   Partizan fixed-value representation study in bounded Digraph Placement and

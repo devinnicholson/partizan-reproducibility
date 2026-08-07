@@ -7,6 +7,7 @@ authors:
     given-names: Devin
 version: 1.0.0-rc1
 date-released: 2026-08-06
+doi: 10.5281/zenodo.21833142
 license: GPL-3.0-or-later
 repository-code: "https://github.com/devinnicholson/partizan-reproducibility"
 abstract: >-
@@ -19,4 +20,3 @@ keywords:
   - proof-carrying generation
   - neural acquisition
   - fixed-value representation
-
