@@ -21,6 +21,15 @@ deposit details in `docs/research/FIXED_VALUE_ARCHIVAL_DEPOSIT.md`.
 The reusable game engine and public visualization live in the main
 [Partizan repository](https://github.com/devinnicholson/partizan).
 
+## Interactive atlas
+
+The [fixed-value atlas](https://devinnicholson.github.io/partizan-reproducibility/)
+shows all 21,697 quotient-distinct graph forms retained by the historical
+order-7 study. It lets a reader group the same observed sample by complete-game
+identity and exact value, then inspect a three-form crossing in detail. The
+deployment is built from a pinned Partizan commit; the published evidence file
+has a compact manifest that binds its compressed and decoded bytes.
+
 ## Layout
 
 - `scripts/research/`: generators, exact verifiers, replay tools, corruption
