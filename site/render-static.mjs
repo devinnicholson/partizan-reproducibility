@@ -40,7 +40,7 @@ assert.match(
 );
 assert.match(html, /21,697 certified graph forms across three exact values\./);
 assert.match(html, /\/partizan-reproducibility\/assets\//);
-assert.match(html, /https:\/\/devinnicholson\.github\.io\/partizan-reproducibility\/og\.png/);
+assert.match(\n  html,\n  /https:\/\/devinnicholson\.github\.io\/partizan-reproducibility\/og-progressive\.png/,\n);
 assert.doesNotMatch(html, /localhost/);
 
 await rm(outputRoot, { recursive: true, force: true });
