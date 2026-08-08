@@ -38,7 +38,7 @@ assert.match(
   html,
   /<title>Partizan \| 193 Graph Forms, One Complete Game<\/title>/i,
 );
-assert.match(html, /21,697 certified graph forms across three exact values\./);
+assert.match(html, /21,697 certified graph forms at three exact values\./);
 assert.match(html, /\/partizan-reproducibility\/assets\//);
 assert.match(
   html,
