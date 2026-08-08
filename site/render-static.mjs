@@ -36,7 +36,7 @@ assert.equal(response.status, 200, "the visualizer did not render successfully")
 const html = await response.text();
 assert.match(
   html,
-  /<title>Partizan \\| 193 Graph Forms, One Complete Game<\\/title>/i,
+  /<title>Partizan \| 193 Graph Forms, One Complete Game<\/title>/i,
 );
 assert.match(html, /21,697 certified graph forms across three exact values\./);
 assert.match(html, /\/partizan-reproducibility\/assets\//);
