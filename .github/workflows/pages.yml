@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  PARTIZAN_REF: 78fb965c20bacab10a58c00c966d0554fbd13bfa
+  PARTIZAN_REF: e6ea659083b836b6bd0b4d5c9e1ae9355d28e144
   PARTIZAN_BASE_PATH: /partizan-reproducibility
 
 jobs:
